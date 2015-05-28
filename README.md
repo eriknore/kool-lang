@@ -1,0 +1,1 @@
+This is project within the course DD2488 Compiler Construction at Royal Institute of Technology in Stockholm (KTH). For more info on the project please visit http://www.csc.kth.se/~phaller/compilers/
