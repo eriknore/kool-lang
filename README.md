@@ -1,1 +1,3 @@
-This is project within the course DD2488 Compiler Construction at Royal Institute of Technology in Stockholm (KTH). For more info on the project please visit http://www.csc.kth.se/~phaller/compilers/
+This is a project within the course DD2488 Compiler Construction at Royal Institute of Technology in Stockholm (KTH). In short it is a compiler for the language KOOL (a recursive acronym which stands for "KOOL Object-Oriented Language") which is a limited programming language, the languague specification is available at http://www.csc.kth.se/~phaller/compilers/labs/labs2.html. We have made our own lexer and parser, performed name analysis and typechecking before generating code for the Java Virtual Machine. The compiler is written in Scala.
+
+For more info on the project please visit http://www.csc.kth.se/~phaller/compilers/ - Labs 2-7
