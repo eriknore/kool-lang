@@ -1,0 +1,18 @@
+/*
+        Error: foo is defined more than once.
+*/
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C {
+    def foo(i: String): String = {
+        return i;
+    }
+
+    def foo(i: Int): String = {
+        return i;
+    }
+}

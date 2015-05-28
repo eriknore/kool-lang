@@ -1,0 +1,62 @@
+// Read the comments below! I am not 100% sure if they're correct
+
+object A {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class Zookeeper {
+      var a:    Animal;
+      var m:    Mammal;
+      var doge: Dog;
+
+      def test(): Int = {
+          // Contravariance errors
+          println(   a.foo(doge, a, doge)                );
+          println(   a.foo(m, a, a)                      );
+          println(   a.foo(a, m, a)                      );
+          println(   a.foo(a, doge, doge)                );
+          println(   m.mammalSpecific(a)                 );
+          println(   doge.dogMethodSpecific(a)           );
+          println(   doge.dogMethodMoreSpecific(a)       );
+          println(   doge.dogMethodMoreSpecific(m)       );
+          return 1;
+      }
+
+}
+
+
+class Animal {
+    def foo(anything: Animal, something: Mammal, specific: Dog): String = {
+        return "Hello";
+    }
+}
+
+class Mammal extends Animal {
+   // Should receive any Mammal, Dog or Animal
+   def mammalGeneral(anything: Animal): String = {
+       return "Hello Mammal";
+   }
+
+   // Should receive any Mammal or Dog
+   def mammalSpecific(notAnything: Mammal): String = {
+       return "Hello Mammal2";
+   }
+
+}
+
+class Dog extends Mammal {
+   // Should receive any Mammal, Dog or Animal
+   def dogMethod(anything: Animal): String = {
+       return "Hello Dog";
+   }
+
+   def dogMethodSpecific(anything: Mammal): String = {
+       return "Hello Dog2";
+   }
+
+   def dogMethodMoreSpecific(anything: Dog): String = {
+       return "Hello Dog3";
+   }
+}

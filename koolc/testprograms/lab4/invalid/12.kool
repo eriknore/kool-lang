@@ -1,0 +1,31 @@
+/*
+        Error: Class A extends class Z which is not defined.
+*/
+
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C extends B {
+    def foo(): Int = {
+        var i: Int;
+        return i;
+    }
+}
+
+class B {
+    def foo2(): Int = {
+        var i: Int;
+        return i;
+    }
+}
+
+
+class A extends Z {
+    def foo2(): Int = {
+        var i: Int;
+        return i;
+    }
+}

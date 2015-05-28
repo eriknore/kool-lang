@@ -1,0 +1,22 @@
+/*
+        Error: Undeclared type: B.
+*/
+
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C extends B {
+    def foo(i: Int): Int = {
+        return 5;
+    }
+}
+
+class B {
+    def foo(): Int = {
+        return 2;
+    }
+}
+

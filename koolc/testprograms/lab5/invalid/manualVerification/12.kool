@@ -1,0 +1,49 @@
+// Methods are implemented incorrectly
+
+object A {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class Zookeeper {
+      var g: GrandParent;
+      var p: Parent;
+      var c: Child;
+
+      def test(): Int = {
+          return 1;
+      }
+
+}
+
+class GrandParent {
+
+}
+
+class Parent extends GrandParent {
+      var g: GrandParent;
+      var p: Parent;
+      var c: Child;
+      
+      def getParent1(): Parent = {
+          return g;
+      }
+}
+
+class Child extends Parent {
+      //var g: GrandParent;
+      //var p: Parent;
+      
+      def getParent1(): Parent = {
+          return g;
+      }
+
+      def getChild1(): Child = {
+          return p;
+      }
+
+      def getChild2(): Child = {
+          return g;
+      }
+}

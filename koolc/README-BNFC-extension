@@ -1,0 +1,26 @@
+To use the compiler with the BNFC extension (--bnfc flag) an external lexer/parser is expected. It can be generated simply by running the command 
+
+	make
+
+in the root folder of the project. The makefile is dependant on having the programs bnfc, gmp, ghc (Haskell), alex and happy installed (see links at the bottom of the file for more info). 
+
+------------------------------------------------------------------------------
+
+One can also use other lexers as JLex (Java) or JFlex (C), and other parsers CUP (Java) or Bison (C++, C, Java) - see the homepage and helppage for BNFC for more information about those. In short you need to run 
+
+	'bnfc -m Kool.cf'
+
+The -m flag to generate the make file and supplying the path to Kool.cf (located in the project root folder), probably some other flag(s) as well depending on which lexer/parser. Run
+
+make
+
+to create the executable 'TestKool' along with some other files which are not needed. The executable needs to be renamed to 'kool-parser' and placed in the project root folder. Now you should be able to use the extension by supplying the flag '--bncf', e.g.
+
+	 scala -cp target/scala-2.11/classes:cafebabe_2.11-1.2.jar koolc.Main --bnfc testprograms/lab3/valid/NewtonsMethod.kool
+
+
+bnfc: 	http://bnfc.digitalgrammars.com/
+gmp:	https://gmplib.org/ (included in most Linux distributions?)
+ghc:	https://www.haskell.org/ghc/
+alex:	https://www.haskell.org/alex/
+happy:	https://www.haskell.org/happy/

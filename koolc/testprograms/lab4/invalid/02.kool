@@ -1,0 +1,17 @@
+/*
+        Error: Class C extends class NewtonsMethod which is not defined.
+*/
+
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C extends NewtonsMethod {
+    var str: String;
+    def foo(): String = {
+        var str: String;
+        return "Hello";
+    }
+}

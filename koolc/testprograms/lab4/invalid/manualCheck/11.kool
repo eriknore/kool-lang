@@ -1,0 +1,26 @@
+/*
+        Error: Undeclared identifier: k.
+*/
+
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C extends A {
+    def foo(): Int = {
+        var i: Int;
+        var j: Int;
+        j = k;
+        return i;
+    }
+}
+
+class A {
+    def foo2(): Int = {
+        var i: Int;
+        return i;
+    }
+}
+

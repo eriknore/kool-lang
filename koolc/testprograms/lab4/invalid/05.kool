@@ -1,0 +1,15 @@
+/*
+        Error: Parameter name i is used twice in foo.
+*/
+
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C {
+    def foo(i: Int, j: Int, i: String): Int = {
+        return j;
+    }
+}

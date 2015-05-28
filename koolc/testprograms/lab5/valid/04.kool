@@ -1,0 +1,123 @@
+object A {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class Zookeeper {
+      var g: GrandParent;
+      var p: Parent;
+      var c: Child;
+
+      def test(): Int = {
+          g = p;
+          g = c;
+          g = g;
+          g = g.getGrandParent1();
+
+          g = g.getGrandParent2();
+          g = g.getGrandParent3();
+          g = p.getGrandParent1();
+          g = p.getGrandParent2();
+
+          g = p.getGrandParent3();
+          g = c.getGrandParent1();
+          g = c.getGrandParent2();
+          g = c.getGrandParent3();
+
+          p = p.getParent1();
+          p = p.getParent2();
+          p = p.getParent3();
+          p = c.getParent1();
+
+          p = c.getParent2();
+          c = c.getChild1();
+          c = c.getChild2();
+          
+          return 1;
+      }
+
+}
+
+class GrandParent {
+      var g: GrandParent;
+      var p: Parent;
+      var c: Child;
+      
+      def getGrandParent1(): GrandParent = {
+          return c;
+      }
+
+      def getGrandParent2(): GrandParent = {
+          return p;
+      }
+
+      def getGrandParent3(): GrandParent = {
+          return g;
+      }
+}
+
+class Parent extends GrandParent {
+      //var g: GrandParent;
+      //var p: Parent;
+      //var c: Child;
+      
+      def getGrandParent1(): GrandParent = {
+          return c;
+      }
+
+      def getGrandParent2(): GrandParent = {
+          return p;
+      }
+
+      def getGrandParent3(): GrandParent = {
+          return g;
+      }
+
+      def getParent1(): Parent = {
+          return c;
+      }
+
+      def getParent2(): Parent = {
+          return p;
+      }
+
+      def getParent3(): Parent = {
+          return p;
+      }
+}
+
+class Child extends Parent {
+      //var g: GrandParent;
+      //var p: Parent;
+      //var c: Child;
+      
+      def getGrandParent1(): GrandParent = {
+          return c;
+      }
+
+      def getGrandParent2(): GrandParent = {
+          return p;
+      }
+
+      def getGrandParent3(): GrandParent = {
+          return g;
+      }
+
+      def getParent1(): Parent = {
+          return c;
+      }
+
+      def getParent2(): Parent = {
+          return p;
+      }
+
+      def getChild1(): Child = {
+          return this;
+      }
+
+      def getChild2(): Child = {
+          return c;
+      }
+}
+

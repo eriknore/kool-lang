@@ -1,0 +1,109 @@
+Program.	PDef 	::= Main [Class];
+
+comment "//" ;
+comment "/*" "*/";
+
+MainObject.	Main 	::=	PosObject PosIdent "{" PosDef "main" "(" ")" ":" "Unit" "=" "{" [Stmnt] "}" "}" ;
+
+-- Class Declaration
+separator Class "" ;
+CDecl. Class ::= PosClass PosIdent Extends "{" [Var] [Method] "}" ;
+	EExt. Extends ::= "extends" PosIdent ;
+	EEmp. Extends ::= ;
+
+-- Variable Declaration
+separator Var "";
+VDecl. Var ::= PosVar PosIdent ":" Type ";" ;
+
+-- Method Declaration
+separator Method "";
+MDecl. Method ::= PosDef PosIdent "(" [Arg] ")" ":" Type "=" "{" [Var] [Stmnt] "return" Expr ";" "}" ;
+	separator Arg "," ;
+	MArgs. Arg ::= PosIdent ":" Type ;
+
+-- Types
+TIntArray. Type ::= PosTIntArray ;
+TInt. Type 		::= PosTInt ;
+TBoolean. Type 	::= PosTBool ;
+TString. Type 	::= PosTString ;
+TIdent. Type 	::= PosIdent ;
+
+-- Statements
+separator Stmnt "" ;
+SBlock. Stmnt 		::= "{" [Stmnt] "}";
+-- Both solutions to if-else produce 1 shift/reduce conflict
+SIfElse. Stmnt 		::= PosIf "(" Expr ")" Stmnt "else" Stmnt ;
+SIfEmp. Stmnt 		::= PosIf "(" Expr ")" Stmnt ;
+--SIf. Stmnt 		::= PosIf "(" Expr ")" Stmnt Rest ;
+--	RElse. Rest 	::= "else" Stmnt ;
+--	REmp. Rest 		::= ;
+SWhile. Stmnt 		::= PosWhile "(" Expr ")" Stmnt ;
+SPrintln. Stmnt 	::= PosPrintln "(" Expr ")" ";" ;
+SAssign. Stmnt 		::= PosIdent "=" Expr ";" ;
+SArrayAssign. Stmnt ::= PosIdent "[" Expr "]" "=" Expr ";" ;
+
+-- Expressions
+-- Parentheses automagically handled using "coercions Expr 7 ;"
+separator Expr "," ;
+
+EMod. 			Expr5	::=	Expr5	 PosMod		 	Expr6 ;
+ETimes. 		Expr5	::=	Expr5	 PosTimes	 	Expr6 ;
+EDiv. 			Expr5	::= Expr5	 PosDiv	 		Expr6 ;
+EPlus. 			Expr4	::= Expr4	 PosPlus	 	Expr5 ;
+EMinus. 		Expr4	::= Expr4	 PosMinus	 	Expr5 ;
+ELessThan. 		Expr3	::= Expr3	 PosLessThan	Expr4 ;
+EEquals. 		Expr2	::= Expr2	 PosEquals	 	Expr3 ;
+EAnd. 			Expr1	::= Expr1	 PosAnd	 		Expr2 ;
+EOr. 			Expr	::= Expr	 PosOr	 		Expr1 ;
+
+ENew. 			Expr6	::= PosNew PosIdent "(" ")" ;
+ENewIntArray. 	Expr6	::= PosNewIntArr "[" Expr "]" ;
+EMethodCall. 	Expr6	::= Expr6 "." PosIdent "(" [Expr] ")" ;
+EArrayLength. 	Expr6	::= Expr6 ".length" ;
+EArrayRead. 	Expr6	::= Expr6 "[" Expr "]" ;
+ENot. 			Expr6 	::= PosNot Expr6 ;
+
+EThis. 			Expr7 	::= PosThis ;
+EIntLit. 		Expr7 	::= PosInteger ;
+EStringLit. 	Expr7 	::= PosString ;
+EBoolTrue. 		Expr7 	::= PosTrue ;
+EBoolFalse. 	Expr7 	::= PosFalse ;
+EIdent. 		Expr7 	::= PosIdent ;
+
+coercions Expr 7 ;
+
+position token PosObject {"object"} ;
+position token PosClass {"class"} ;
+position token PosVar {"var"} ;
+position token PosDef {"def"} ;
+
+position token PosPrintln {"println"} ;
+position token PosWhile {"while"} ;
+position token PosIf {"if"} ;
+
+position token PosTIntArray {"Int[]"} ;
+position token PosTInt {"Int"} ;
+position token PosTBool {"Bool"} ;
+position token PosTString {"String"} ;
+
+-- Primitives
+position token PosNew {"new"} ;
+position token PosNewIntArr {"new Int"} ;
+position token PosTrue {"true"} ;
+position token PosFalse {"false"} ;
+position token PosThis {"this"} ;
+position token PosNot ('!') ;
+position token PosPlus ('+') ;
+position token PosMinus ('-') ;
+position token PosTimes ('*') ;
+position token PosDiv ('/') ;
+position token PosMod ('%') ;
+position token PosLessThan ('<') ;
+position token PosEquals {"=="} ;
+position token PosAnd {"&&"} ;
+position token PosOr {"||"} ;
+position token PosInteger (digit (digit)*) ;
+position token PosString ('"' (char - '"')* '"') ;
+
+-- keep at the bottom trying all cases from top to bottom, this regex cathes e.g. new
+position token PosIdent (letter (letter | digit | '_')*) ;

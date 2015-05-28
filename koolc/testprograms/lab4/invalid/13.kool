@@ -1,0 +1,31 @@
+/*
+        
+*/
+
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class A extends B {
+    def foo(): Int = {
+        var i: Int;
+        return i;
+    }
+}
+
+class B extends C {
+    def foo2(): Int = {
+        var i: Int;
+        return i;
+    }
+}
+
+
+class C extends A {
+    def foo3(): Int = {
+        var i: Int;
+        return i;
+    }
+}

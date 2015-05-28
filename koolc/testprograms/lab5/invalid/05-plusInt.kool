@@ -1,0 +1,34 @@
+object A {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C {
+    def foo(): String = {
+        var myInt:       Int;
+        var myStr:       String;
+        var myBool:      Bool;
+        var myIntArr:    Int[];
+        var dummyInt:    Int;
+
+        // + resulting in Int
+        dummyInt = myInt + myBool;
+        dummyInt = myInt + myStr;
+        dummyInt = myInt + myIntArr;
+
+        dummyInt = myBool + myInt;
+        dummyInt = myBool + myStr;
+        dummyInt = myBool + myIntArr;
+
+        dummyInt = myStr + myInt;
+        dummyInt = myStr + myBool;
+        dummyInt = myStr + myIntArr;
+
+        dummyInt = myIntArr + myInt;
+        dummyInt = myIntArr + myBool;
+        dummyInt = myIntArr + myStr;
+        
+        return "Hello";
+    }
+}

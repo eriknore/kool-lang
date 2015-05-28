@@ -1,0 +1,36 @@
+// Should throw 12 type errors
+
+object A {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C {
+    def foo(): String = {
+        var myInt:       Int;
+        var myStr:       String;
+        var myBool:      Bool;
+        var myIntArr:    Int[];
+        var dummyBool:   Bool;
+
+        // + resulting in Bool
+        dummyBool = myInt + myBool;
+        dummyBool = myInt + myStr;
+        dummyBool = myInt + myIntArr;
+
+        dummyBool = myBool + myInt;
+        dummyBool = myBool + myStr;
+        dummyBool = myBool + myIntArr;
+
+        dummyBool = myStr + myInt;
+        dummyBool = myStr + myBool;
+        dummyBool = myStr + myIntArr;
+
+        dummyBool = myIntArr + myInt;
+        dummyBool = myIntArr + myBool;
+        dummyBool = myIntArr + myStr;
+
+        return "Hello";
+    }
+}

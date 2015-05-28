@@ -1,0 +1,15 @@
+For information on the usage of the extension using BNFC, see the other readme: README-BNFC-extension!
+
+We regularly tested our solutions against the reference compiler and supplied examples of code to test as well as writing our own tests - these are found in testprograms/. Included are two shell scripts which performs a test suite of either the original Lexer.scala and Parser.scala (suite.sh) or the new BNFC generated lexer and parser (suite_bnfc.sh). These are invoked in the terminal (Linux):
+	
+	./suite.sh
+or
+	./suite_bnfc.sh
+
+It is expected that the compiler project is compiled before running these scripts and that class-files are located within 'target/scala-2.11/classes' (default folder compiling with sbt).
+
+To test the new modulo operator you can use the following command which generates code from a modified version of GCD.kool, the original can be found at testprograms/lab3/valid/GCD.kool and the modified one at testprograms/extension/GCD_mod.kool
+
+	scala -cp target/scala-2.11/classes:cafebabe_2.11-1.2.jar koolc.Main testprograms/extension/GCD_mod.kool && java MainObject
+
+This uses the old version of the lexer and parser, add the flag '--bnfc' before or after the file to use the extension. Don't forget to remove the class-files unless you want to keep them :)

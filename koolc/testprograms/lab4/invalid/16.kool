@@ -1,0 +1,20 @@
+/*
+        Error: value member declaration overrides previous declaration
+*/
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C extends A {
+    var value: Int;
+
+    def foo(i: String): String = {
+        return i;
+    }
+}
+
+class A {
+    var value: Int;
+}

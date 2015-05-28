@@ -1,0 +1,22 @@
+/*
+        Warning: Variable str is declared but never used.
+*/
+
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C {
+    var str: String;
+    var num: Int;
+    def foo(): String = {
+        var str: String;
+        var bla: Bool;
+        num = 5;
+        str = "Hello";
+        return str;
+    }
+
+}

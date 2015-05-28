@@ -1,0 +1,16 @@
+/*
+        Error: Declaration of i as local shadows method parameter of the same name.
+*/
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C {
+    def foo(i: String): String = {
+        var i: String;
+        return i;
+    }
+}
+

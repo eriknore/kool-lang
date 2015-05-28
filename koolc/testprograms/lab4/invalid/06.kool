@@ -1,0 +1,16 @@
+/*
+        Fatal: Undeclared type: A.
+*/
+
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C {
+    def foo(i: Int, j: Int): Int = {
+        var myObj: A;
+        return i;
+    }
+}

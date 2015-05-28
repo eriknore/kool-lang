@@ -1,0 +1,21 @@
+/*
+        Error: str is declared more than once.
+*/
+
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C {
+    var str: String;
+    var str2: String;
+    var str: String;
+    def foo(): String = {
+        var str3: String;
+        str3 = "World!";
+        str2 = "used";
+        return str;
+    }
+}

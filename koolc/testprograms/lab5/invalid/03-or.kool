@@ -1,0 +1,35 @@
+// Should throw 12*2 + 12 type errors
+object A {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C {
+    def foo(): String = {
+        var myInt:       Int;
+        var myStr:       String;
+        var myBool:      Bool;
+        var myIntArr:    Int[];
+        var dummyBool:   Bool;
+
+        // ||
+        if(myInt || myStr) { dummyBool = myInt || myStr; }
+        if(myInt || myBool) { dummyBool = myInt || myBool; }
+        if(myInt || myIntArr) { dummyBool = myInt || myIntArr; }
+        
+        if(myStr || myInt) { dummyBool = myStr || myInt; }
+        if(myStr || myBool) { dummyBool = myStr || myBool; }
+        if(myStr || myIntArr) { dummyBool = myStr || myIntArr; }
+        
+        if(myBool || myInt) { dummyBool = myBool || myInt; }
+        if(myBool || myStr) { dummyBool = myBool || myStr; }
+        if(myBool || myIntArr) { dummyBool = myBool || myIntArr; }
+        
+        if(myIntArr || myInt) { dummyBool = myIntArr || myInt; }
+        if(myIntArr || myStr) { dummyBool = myIntArr || myStr; }
+        if(myIntArr || myBool) { dummyBool = myIntArr || myBool; }
+
+        return "Hello";
+    }
+}

@@ -1,0 +1,16 @@
+/*
+        Error: Class NewtonsMethod has the same name as the main class.
+*/
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class NewtonsMethod {
+    var str: String;
+    def foo(): String = {
+        return str;
+    }
+
+}

@@ -1,0 +1,23 @@
+/*
+        Error: Class C is defined more than once.
+*/
+
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C {
+    def foo(): Int = {
+        var i: Int;
+        return i;
+    }
+}
+
+class C {
+    def foo(): Int = {
+        var i: Int;
+        return i;
+    }
+}

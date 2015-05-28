@@ -1,0 +1,70 @@
+object A {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class Zookeeper {
+      var a:     Animal;
+      var m:     Mammal;
+      var doge:  Dog;
+
+      def test(): Int = {
+          a = a;
+          a = m;
+          a = doge;
+          a = a.foo();
+          a = doge.getDog();
+          a = doge.getA();
+          a = doge.getB();
+          a = m.getA();
+          a = m.getMammal();
+
+          m = m;
+          m = doge;
+          m = m.getMammal();
+          m = doge.getB();
+          m = doge.getDog();
+
+          doge = doge;
+          doge = doge.getDog();
+          
+          return 1;
+      }
+}
+
+
+class Animal {
+    def foo(): Animal = {
+        return this;
+    }
+}
+
+class Mammal extends Animal {
+    var myAncestor: Animal;
+    
+    def getMammal(): Mammal = {
+       return this;
+    }
+
+    def getA(): Animal = {
+        return myAncestor;
+    }
+}
+
+class Dog extends Mammal {
+    //var myAncestor:      Animal;
+    var myCloseAncestor: Mammal;
+
+    def getDog(): Dog = {
+        return this;
+    }
+    
+    def getA(): Animal = {
+        return myAncestor;
+    }
+
+    def getB(): Mammal = {
+        return myCloseAncestor;
+    }
+}

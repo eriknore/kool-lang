@@ -1,0 +1,18 @@
+/*
+        Error: i is declared more than once.
+*/
+
+object NewtonsMethod {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class C {
+    def foo(): Int = {
+        var i: Int;
+        var j: String;
+        var i: Int;
+        return i;
+    }
+}

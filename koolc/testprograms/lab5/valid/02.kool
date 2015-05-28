@@ -1,0 +1,45 @@
+object A {
+    def main(): Unit = {
+        println("Hello");
+    }
+}
+
+class Zookeeper {
+      var a:     Animal;
+      var doge:  Dog;
+      var felix: Cat;
+
+      def test(): Int = {
+          println(   a.foo(a, felix, doge)               );
+          println(   a.foo(felix, felix, doge)           );
+          println(   a.foo(doge, felix, doge)            );
+          println(   doge.baz(a, felix, doge)            );
+          println(   doge.baz(felix, felix, doge)        );
+          println(   doge.baz(doge, felix, doge)         );
+          println(   felix.bar(a, felix, doge)           );
+          println(   felix.bar(felix, felix, doge)       );
+          println(   felix.bar(doge, felix, doge)        );
+          
+          return 1;
+      }
+
+}
+
+
+class Animal {
+    def foo(anything: Animal, c: Cat, d: Dog): String = {
+        return "Hello";
+    }
+}
+
+class Cat extends Animal {
+    def bar(anything: Animal, c: Cat, d: Dog): String = {
+        return "Hello from Cat";
+    }
+}
+
+class Dog extends Animal {
+    def baz(anything: Animal, c: Cat, d: Dog): String = {
+        return "Hello from Dog";
+    }
+}
